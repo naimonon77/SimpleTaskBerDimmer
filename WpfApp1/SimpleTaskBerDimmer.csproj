@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Computer_icon-icons.com_55509.ico" />
+    <None Remove="resources\Office_-30_icon-icons.com_73979.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\computer_icon-icons.com_55509.ico" />
+    <Resource Include="resources\Office_-30_icon-icons.com_73979.png" />
+  </ItemGroup>
+
+</Project>
