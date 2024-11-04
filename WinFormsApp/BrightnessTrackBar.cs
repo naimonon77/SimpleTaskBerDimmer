@@ -8,15 +8,22 @@ namespace WinFormsApp
 {
     public partial class BrightnessTrackBar
     {
+        const int LocationX = 10;
+        const int LocationY = 20;
+        const int Width = 500;
+        public const int Height = 30;
+        public const int Right = LocationX + Width;
+        public const int Bottom = LocationY + Height;
+
         public static TrackBar Make(Action<int> SetBrightness)
         {
             var brightnessTrackBar_ = new TrackBar
             {
-                Location = new Point(10, 10),
+                Location = new Point(LocationX, LocationY),
                 Maximum = BrightnessControl.SizeConstNum,
                 Minimum = 50,
                 Name = "brightnessTrackBar_",
-                Size = new Size(500, 50),
+                Width = Width,
                 TabIndex = 0,
                 Value = 50,
             };

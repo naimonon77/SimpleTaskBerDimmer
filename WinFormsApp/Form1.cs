@@ -9,8 +9,10 @@ namespace WinFormsApp
         {
             InitializeComponent();
 
-            brightnessTrackBar = CreateAndAddControl(    BrightnessTrackBar.Make(SetBrightness)    );
-            brightnessLabel = CreateAndAddControl(BrightnessLabel.Make());
+            var trackBarLabel = new TrackBarLabel {
+                
+            };
+            Controls.Add(trackBarLabel);
         }
 
         private T CreateAndAddControl<T>(T control) where T : Control
@@ -21,31 +23,30 @@ namespace WinFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var workingArea = Screen.PrimaryScreen.WorkingArea;
-
-            // フォームの位置を画面下部に設定
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(
-                (workingArea.Width - this.Width) / 2,   // 横は中央に配置
-                workingArea.Bottom - this.Height - 100       // 縦は下に配置
-            );
-
-            SetBrightness(200);
-        }
-
-        private void SetBrightness(int brightness)
-        {
-            BrightnessControl.SetBrightness(brightness);
-            brightnessLabel.Text = brightness.ToString();
-            if (brightness != brightnessTrackBar.Value)
+            var maxBottom = 0;
+            foreach (var control in Controls)
             {
-                brightnessTrackBar.Value = brightness;
+                if (control == null) continue;
+                if (control is Control)
+                {
+                    maxBottom = ((Control)control).Bottom;
+                }
             }
-        }
+            Height = maxBottom + 100;
 
-        private void brightnessTrackBar_Scroll(object? sender, EventArgs e)
-        {
-            SetBrightness(brightnessTrackBar.Value);
+            if (Screen.PrimaryScreen != null)
+            {
+                var workingArea = Screen.PrimaryScreen.WorkingArea;
+
+                // フォームの位置を画面下部に設定
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = new Point(
+                    (workingArea.Width - this.Width) / 2,   // 横は中央に配置
+                    workingArea.Bottom - this.Height - 100       // 縦は下に配置
+                );
+            }
+
+            //SetBrightness(200);
         }
     }
 }
