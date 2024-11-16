@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp
 {
-    class CutomControl : Control
-    {
-
-    }
-
     internal class BrightnessLabel
     {
         public static Label Make()
@@ -22,7 +17,7 @@ namespace WinFormsApp
                 Location = new Point(BrightnessTrackBar.Right, 0),
                 Margin = new Padding(4, 0, 4, 0),
                 Name = "brightnessLabel",
-                Size = new Size(145, 88),
+                Size = new Size(10, 88),
                 TabIndex = 1,
                 Text = "255",
             };

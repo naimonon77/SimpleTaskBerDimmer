@@ -9,7 +9,7 @@ namespace WinFormsApp
     public partial class BrightnessTrackBar
     {
         const int LocationX = 10;
-        const int LocationY = 20;
+        const int LocationY = 10;
         const int Width = 500;
         public const int Height = 30;
         public const int Right = LocationX + Width;

@@ -36,7 +36,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             Name = "TrackBarLabel";
-            Size = new Size(1000, 150);
+            AutoSize = true;
+
             ResumeLayout(false);
         }
 
